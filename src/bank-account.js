@@ -18,9 +18,9 @@ export class BankAccount {
   }
 
   deposit(deposito) {
-    if (this.cuenta_cerrada){
+    if (this.cuenta_cerrada) {
       throw new ValueError;
-    }else if (deposito < 0) {
+    } else if (deposito < 0) {
       throw new ValueError;
     } else {
       this.dinero += deposito;
@@ -28,7 +28,9 @@ export class BankAccount {
   }
 
   withdraw(retiro) {
-    if (retiro < 0) {
+    if (this.cuenta_cerrada) {
+      throw new ValueError;
+    } else if (retiro < 0) {
       throw new ValueError;
     }
     else if (retiro > this.dinero) {
