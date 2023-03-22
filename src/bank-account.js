@@ -18,7 +18,8 @@ export class BankAccount {
     this.dinero += deposito;
   }
 
-  withdraw() {
+  withdraw(retiro) {
+    this.dinero -= 50;
   }
 
   get balance() {
