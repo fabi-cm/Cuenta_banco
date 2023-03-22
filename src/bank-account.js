@@ -12,6 +12,8 @@ export class BankAccount {
   }
 
   close() {
+    // return new ValueError();
+    this.dinero = 0;
   }
 
   deposit(deposito) {
@@ -19,7 +21,11 @@ export class BankAccount {
   }
 
   withdraw(retiro) {
-    this.dinero -= 50;
+    if (retiro > this.dinero){
+      throw new ValueError;
+    }else{
+      this.dinero -= retiro;
+    }
   }
 
   get balance() {
