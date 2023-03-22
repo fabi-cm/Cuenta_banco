@@ -12,8 +12,8 @@ export class BankAccount {
   }
 
   close() {
-    // return new ValueError();
     this.dinero = 0;
+    // throw new ValueError();
   }
 
   deposit(deposito) {
@@ -21,7 +21,10 @@ export class BankAccount {
   }
 
   withdraw(retiro) {
-    if (retiro > this.dinero){
+    if (retiro < 0){
+      throw new ValueError;
+    }
+    else if (retiro > this.dinero){
       throw new ValueError;
     }else{
       this.dinero -= retiro;
@@ -36,5 +39,6 @@ export class BankAccount {
 export class ValueError extends Error {
   constructor() {
     super("Bank account error");
+    this.name = "ValueError";
   }
 }
