@@ -6,6 +6,7 @@
 export class BankAccount {
   constructor() {
     this.dinero = 0;
+    this.cuenta_cerrada = false;
   }
 
   open() {
@@ -13,11 +14,13 @@ export class BankAccount {
 
   close() {
     this.dinero = 0;
-    // throw new ValueError();
+    this.cuenta_cerrada = true;
   }
 
   deposit(deposito) {
-    if (deposito < 0) {
+    if (this.cuenta_cerrada){
+      throw new ValueError;
+    }else if (deposito < 0) {
       throw new ValueError;
     } else {
       this.dinero += deposito;
@@ -36,6 +39,11 @@ export class BankAccount {
   }
 
   get balance() {
+    if (this.cuenta_cerrada) {
+      // throw new ValueError;
+      // return ValueError;
+      // this.dinero = 0;
+    }
     return this.dinero;
   }
 }
