@@ -5,6 +5,7 @@
 
 export class BankAccount {
   constructor() {
+    this.dinero = 0;
   }
 
   open() {
@@ -13,14 +14,15 @@ export class BankAccount {
   close() {
   }
 
-  deposit() {
+  deposit(deposito) {
+    this.dinero = deposito;
   }
 
   withdraw() {
   }
 
   get balance() {
-    return 0;
+    return this.dinero;
   }
 }
 
