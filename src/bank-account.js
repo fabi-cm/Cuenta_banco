@@ -17,16 +17,20 @@ export class BankAccount {
   }
 
   deposit(deposito) {
-    this.dinero += deposito;
+    if (deposito < 0) {
+      throw new ValueError;
+    } else {
+      this.dinero += deposito;
+    }
   }
 
   withdraw(retiro) {
-    if (retiro < 0){
+    if (retiro < 0) {
       throw new ValueError;
     }
-    else if (retiro > this.dinero){
+    else if (retiro > this.dinero) {
       throw new ValueError;
-    }else{
+    } else {
       this.dinero -= retiro;
     }
   }
